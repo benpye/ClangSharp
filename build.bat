@@ -8,6 +8,21 @@ if [%2]==[] (
   EXIT /B
 )
 
-csc /out:ClangSharpPInvokeGenerator.exe ClangSharpPInvokeGenerator\*.cs
-ClangSharpPInvokeGenerator.exe --m clang --p clang_ --namespace ClangSharp --output Generated.cs --libraryPath %1 --include %2 --file %2/clang-c/Index.h --file %2/clang-c/CXString.h --file %2/clang-c/Documentation.h --file %2/clang-c/CXErrorCode.h --file %2/clang-c/BuildSystem.h --file %2/clang-c/CXCompilationDatabase.h --excludeFunctions clang_index_getClientEntity,clang_index_setClientEntity,clang_createTranslationUnitFromSourceFile,clang_parseTranslationUnit,clang_parseTranslationUnit2,clang_parseTranslationUnit2FullArgv,clang_reparseTranslationUnit,clang_codeCompleteAt,clang_indexSourceFile,clang_indexSourceFileFullArgv
-csc /target:library /out:ClangSharp.dll Generated.cs Extensions.cs
+dotnet run -p ClangSharpPInvokeGenerator ^
+              --m clang ^
+              --p clang_ ^
+              --namespace ClangSharp ^
+              --output ClangSharp/Generated.cs ^
+              --libraryPath %1 ^
+              --include %2 ^
+              --file %2/clang-c/Index.h ^
+              --file %2/clang-c/CXString.h ^
+              --file %2/clang-c/Documentation.h ^
+              --file %2/clang-c/CXErrorCode.h ^
+              --file %2/clang-c/BuildSystem.h ^
+              --file %2/clang-c/CXCompilationDatabase.h ^
+              --excludeFunctions clang_index_getClientEntity,clang_index_setClientEntity,clang_createTranslationUnitFromSourceFile,clang_parseTranslationUnit,clang_parseTranslationUnit2,clang_parseTranslationUnit2FullArgv,clang_reparseTranslationUnit,clang_codeCompleteAt,clang_indexSourceFile,clang_indexSourceFileFullArgv
+
+dotnet build ClangSharp
+
+dotnet test ClangSharp.Test
