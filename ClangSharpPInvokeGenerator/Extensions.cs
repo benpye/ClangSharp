@@ -235,7 +235,15 @@
                     return;
                 case CXTypeKind.CXType_Typedef:
                     var cursor = clang.getTypeDeclaration(type);
-                    if (clang.Location_isInSystemHeader(clang.getCursorLocation(cursor)) != 0)
+                    var location = clang.getCursorLocation(cursor);
+
+                    // For some reason size_t isn't considered as within a system header.
+                    // We work around this by asking for the file name - if it's unknown, probably it's a system header
+                    var isInSystemHeader = clang.Location_isInSystemHeader(clang.getCursorLocation(cursor)) != 0;
+                    clang.getPresumedLocation(clang.getCursorLocation(cursor), out CXString @filename, out uint @line, out uint @column);
+                    isInSystemHeader |= filename.ToString() == string.Empty;
+
+                    if (isInSystemHeader)
                     {
                         spelling = clang.getCanonicalType(type).ToPlainTypeString();
                     }
