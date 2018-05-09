@@ -135,6 +135,8 @@
 
             using (var sw = new StreamWriter(outputFile))
             {
+                sw.NewLine = "\n";
+
                 sw.WriteLine("namespace " + @namespace);
                 sw.WriteLine("{");
 
