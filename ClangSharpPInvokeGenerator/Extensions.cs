@@ -98,7 +98,7 @@
                     switch (pointeeType.kind)
                     {
                         case CXTypeKind.CXType_Char_S:
-                            return "[MarshalAs(UnmanagedType.LPStr)] public string @" + cursorSpelling + ";";
+                            return "[MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaler))] public string @" + cursorSpelling + ";";
                         case CXTypeKind.CXType_WChar:
                             return "[MarshalAs(UnmanagedType.LPWStr)] public string @" + cursorSpelling + ";";
                         default:
@@ -119,8 +119,8 @@
             var resultType = clang.getCursorResultType(cursor);
 
             tw.WriteLine("        [DllImport(libraryPath, EntryPoint = \"" + functionName + "\", CallingConvention = " + functionType.CallingConventionSpelling() + ")]");
-            if(resultType.IsPtrToConstChar())
-                tw.WriteLine("        [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringReturnMarshaller))]");
+            if (resultType.IsPtrToConstChar())
+                tw.WriteLine("        [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaler))]");
 
             tw.Write("        public static extern ");
 
@@ -198,7 +198,7 @@
                             tw.Write("IntPtr");
                             break;
                         case CXTypeKind.CXType_Char_S:
-                            tw.Write(type.IsPtrToConstChar() ? "[MarshalAs(UnmanagedType.LPStr)] string" : "IntPtr"); // if it's not a const, it's best to go with IntPtr
+                            tw.Write(type.IsPtrToConstChar() ? "[MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaler))] string" : "IntPtr"); // if it's not a const, it's best to go with IntPtr
                             break;
                         case CXTypeKind.CXType_WChar:
                             tw.Write(type.IsPtrToConstChar() ? "[MarshalAs(UnmanagedType.LPWStr)] string" : "IntPtr");

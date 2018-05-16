@@ -135,7 +135,7 @@ namespace ClangSharp.Test
 
             using (TestVFO T = new TestVFO(contents))
             {
-                T.Map("$ROOT$/path/\u266B/\u2602.h", "$ROOT$/real/\u2602.h");
+                T.Map("$ROOT$/path/♫/☂.h", "$ROOT$/real/☂.h");
             }
         }
 
