@@ -47,18 +47,18 @@ namespace ClangSharp
 
     public partial struct CXFileUniqueID
     {
-        public ulong @data0; public ulong @data1; public ulong @data2; 
+        public ulong @data0; public ulong @data1; public ulong @data2;
     }
 
     public partial struct CXSourceLocation
     {
-        public IntPtr @ptr_data0; public IntPtr @ptr_data1; 
+        public IntPtr @ptr_data0; public IntPtr @ptr_data1;
         public uint @int_data;
     }
 
     public partial struct CXSourceRange
     {
-        public IntPtr @ptr_data0; public IntPtr @ptr_data1; 
+        public IntPtr @ptr_data0; public IntPtr @ptr_data1;
         public uint @begin_int_data;
         public uint @end_int_data;
     }
@@ -86,7 +86,7 @@ namespace ClangSharp
     {
         public CXCursorKind @kind;
         public int @xdata;
-        public IntPtr @data0; public IntPtr @data1; public IntPtr @data2; 
+        public IntPtr @data0; public IntPtr @data1; public IntPtr @data2;
     }
 
     public partial struct CXPlatformAvailability
@@ -106,12 +106,12 @@ namespace ClangSharp
     public partial struct CXType
     {
         public CXTypeKind @kind;
-        public IntPtr @data0; public IntPtr @data1; 
+        public IntPtr @data0; public IntPtr @data1;
     }
 
     public partial struct CXToken
     {
-        public uint @int_data0; public uint @int_data1; public uint @int_data2; public uint @int_data3; 
+        public uint @int_data0; public uint @int_data1; public uint @int_data2; public uint @int_data3;
         public IntPtr @ptr_data;
     }
 
@@ -135,7 +135,7 @@ namespace ClangSharp
 
     public partial struct CXIdxLoc
     {
-        public IntPtr @ptr_data0; public IntPtr @ptr_data1; 
+        public IntPtr @ptr_data0; public IntPtr @ptr_data1;
         public uint @int_data;
     }
 
