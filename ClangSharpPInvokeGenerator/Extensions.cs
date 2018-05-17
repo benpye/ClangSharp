@@ -92,7 +92,7 @@ namespace ClangSharpPInvokeGenerator
                         sb.Append("public " + elementType.ToPlainTypeString() + " @" + cursorSpelling + i + "; ");
                     }
 
-                    return sb.ToString();
+                    return sb.ToString().TrimEnd();
                 case CXTypeKind.CXType_Pointer:
                     var pointeeType = clang.getCanonicalType(clang.getPointeeType(canonical));
                     switch (pointeeType.kind)
