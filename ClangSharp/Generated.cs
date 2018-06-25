@@ -519,7 +519,7 @@ namespace ClangSharp
         public IntPtr Pointer;
     }
 
-    public enum CXErrorCode : uint
+    public enum CXErrorCode : int
     {
         @CXError_Success = 0,
         @CXError_Failure = 1,
@@ -528,7 +528,7 @@ namespace ClangSharp
         @CXError_ASTReadError = 4,
     }
 
-    public enum CXAvailabilityKind : uint
+    public enum CXAvailabilityKind : int
     {
         @CXAvailability_Available = 0,
         @CXAvailability_Deprecated = 1,
@@ -536,7 +536,7 @@ namespace ClangSharp
         @CXAvailability_NotAccessible = 3,
     }
 
-    public enum CXCursor_ExceptionSpecificationKind : uint
+    public enum CXCursor_ExceptionSpecificationKind : int
     {
         @CXCursor_ExceptionSpecificationKind_None = 0,
         @CXCursor_ExceptionSpecificationKind_DynamicNone = 1,
@@ -549,7 +549,7 @@ namespace ClangSharp
         @CXCursor_ExceptionSpecificationKind_Unparsed = 8,
     }
 
-    public enum CXGlobalOptFlags : uint
+    public enum CXGlobalOptFlags : int
     {
         @CXGlobalOpt_None = 0,
         @CXGlobalOpt_ThreadBackgroundPriorityForIndexing = 1,
@@ -557,7 +557,7 @@ namespace ClangSharp
         @CXGlobalOpt_ThreadBackgroundPriorityForAll = 3,
     }
 
-    public enum CXDiagnosticSeverity : uint
+    public enum CXDiagnosticSeverity : int
     {
         @CXDiagnostic_Ignored = 0,
         @CXDiagnostic_Note = 1,
@@ -566,7 +566,7 @@ namespace ClangSharp
         @CXDiagnostic_Fatal = 4,
     }
 
-    public enum CXLoadDiag_Error : uint
+    public enum CXLoadDiag_Error : int
     {
         @CXLoadDiag_None = 0,
         @CXLoadDiag_Unknown = 1,
@@ -574,7 +574,7 @@ namespace ClangSharp
         @CXLoadDiag_InvalidFile = 3,
     }
 
-    public enum CXDiagnosticDisplayOptions : uint
+    public enum CXDiagnosticDisplayOptions : int
     {
         @CXDiagnostic_DisplaySourceLocation = 1,
         @CXDiagnostic_DisplayColumn = 2,
@@ -584,7 +584,7 @@ namespace ClangSharp
         @CXDiagnostic_DisplayCategoryName = 32,
     }
 
-    public enum CXTranslationUnit_Flags : uint
+    public enum CXTranslationUnit_Flags : int
     {
         @CXTranslationUnit_None = 0,
         @CXTranslationUnit_DetailedPreprocessingRecord = 1,
@@ -600,12 +600,12 @@ namespace ClangSharp
         @CXTranslationUnit_SingleFileParse = 1024,
     }
 
-    public enum CXSaveTranslationUnit_Flags : uint
+    public enum CXSaveTranslationUnit_Flags : int
     {
         @CXSaveTranslationUnit_None = 0,
     }
 
-    public enum CXSaveError : uint
+    public enum CXSaveError : int
     {
         @CXSaveError_None = 0,
         @CXSaveError_Unknown = 1,
@@ -613,12 +613,12 @@ namespace ClangSharp
         @CXSaveError_InvalidTU = 3,
     }
 
-    public enum CXReparse_Flags : uint
+    public enum CXReparse_Flags : int
     {
         @CXReparse_None = 0,
     }
 
-    public enum CXTUResourceUsageKind : uint
+    public enum CXTUResourceUsageKind : int
     {
         @CXTUResourceUsage_AST = 1,
         @CXTUResourceUsage_Identifiers = 2,
@@ -640,7 +640,7 @@ namespace ClangSharp
         @CXTUResourceUsage_Last = 14,
     }
 
-    public enum CXCursorKind : uint
+    public enum CXCursorKind : int
     {
         @CXCursor_UnexposedDecl = 1,
         @CXCursor_StructDecl = 2,
@@ -875,7 +875,7 @@ namespace ClangSharp
         @CXCursor_OverloadCandidate = 700,
     }
 
-    public enum CXLinkageKind : uint
+    public enum CXLinkageKind : int
     {
         @CXLinkage_Invalid = 0,
         @CXLinkage_NoLinkage = 1,
@@ -884,7 +884,7 @@ namespace ClangSharp
         @CXLinkage_External = 4,
     }
 
-    public enum CXVisibilityKind : uint
+    public enum CXVisibilityKind : int
     {
         @CXVisibility_Invalid = 0,
         @CXVisibility_Hidden = 1,
@@ -892,7 +892,7 @@ namespace ClangSharp
         @CXVisibility_Default = 3,
     }
 
-    public enum CXLanguageKind : uint
+    public enum CXLanguageKind : int
     {
         @CXLanguage_Invalid = 0,
         @CXLanguage_C = 1,
@@ -900,14 +900,14 @@ namespace ClangSharp
         @CXLanguage_CPlusPlus = 3,
     }
 
-    public enum CXTLSKind : uint
+    public enum CXTLSKind : int
     {
         @CXTLS_None = 0,
         @CXTLS_Dynamic = 1,
         @CXTLS_Static = 2,
     }
 
-    public enum CXTypeKind : uint
+    public enum CXTypeKind : int
     {
         @CXType_Invalid = 0,
         @CXType_Unexposed = 1,
@@ -1007,7 +1007,7 @@ namespace ClangSharp
         @CXType_OCLReserveID = 160,
     }
 
-    public enum CXCallingConv : uint
+    public enum CXCallingConv : int
     {
         @CXCallingConv_Default = 0,
         @CXCallingConv_C = 1,
@@ -1030,7 +1030,7 @@ namespace ClangSharp
         @CXCallingConv_Unexposed = 200,
     }
 
-    public enum CXTemplateArgumentKind : uint
+    public enum CXTemplateArgumentKind : int
     {
         @CXTemplateArgumentKind_Null = 0,
         @CXTemplateArgumentKind_Type = 1,
@@ -1053,14 +1053,14 @@ namespace ClangSharp
         @CXTypeLayoutError_InvalidFieldName = -5,
     }
 
-    public enum CXRefQualifierKind : uint
+    public enum CXRefQualifierKind : int
     {
         @CXRefQualifier_None = 0,
         @CXRefQualifier_LValue = 1,
         @CXRefQualifier_RValue = 2,
     }
 
-    public enum CX_CXXAccessSpecifier : uint
+    public enum CX_CXXAccessSpecifier : int
     {
         @CX_CXXInvalidAccessSpecifier = 0,
         @CX_CXXPublic = 1,
@@ -1068,7 +1068,7 @@ namespace ClangSharp
         @CX_CXXPrivate = 3,
     }
 
-    public enum CX_StorageClass : uint
+    public enum CX_StorageClass : int
     {
         @CX_SC_Invalid = 0,
         @CX_SC_None = 1,
@@ -1080,14 +1080,14 @@ namespace ClangSharp
         @CX_SC_Register = 7,
     }
 
-    public enum CXChildVisitResult : uint
+    public enum CXChildVisitResult : int
     {
         @CXChildVisit_Break = 0,
         @CXChildVisit_Continue = 1,
         @CXChildVisit_Recurse = 2,
     }
 
-    public enum CXObjCPropertyAttrKind : uint
+    public enum CXObjCPropertyAttrKind : int
     {
         @CXObjCPropertyAttr_noattr = 0,
         @CXObjCPropertyAttr_readonly = 1,
@@ -1105,7 +1105,7 @@ namespace ClangSharp
         @CXObjCPropertyAttr_class = 4096,
     }
 
-    public enum CXObjCDeclQualifierKind : uint
+    public enum CXObjCDeclQualifierKind : int
     {
         @CXObjCDeclQualifier_None = 0,
         @CXObjCDeclQualifier_In = 1,
@@ -1116,14 +1116,14 @@ namespace ClangSharp
         @CXObjCDeclQualifier_Oneway = 32,
     }
 
-    public enum CXNameRefFlags : uint
+    public enum CXNameRefFlags : int
     {
         @CXNameRange_WantQualifier = 1,
         @CXNameRange_WantTemplateArgs = 2,
         @CXNameRange_WantSinglePiece = 4,
     }
 
-    public enum CXTokenKind : uint
+    public enum CXTokenKind : int
     {
         @CXToken_Punctuation = 0,
         @CXToken_Keyword = 1,
@@ -1132,7 +1132,7 @@ namespace ClangSharp
         @CXToken_Comment = 4,
     }
 
-    public enum CXCompletionChunkKind : uint
+    public enum CXCompletionChunkKind : int
     {
         @CXCompletionChunk_Optional = 0,
         @CXCompletionChunk_TypedText = 1,
@@ -1157,14 +1157,14 @@ namespace ClangSharp
         @CXCompletionChunk_VerticalSpace = 20,
     }
 
-    public enum CXCodeComplete_Flags : uint
+    public enum CXCodeComplete_Flags : int
     {
         @CXCodeComplete_IncludeMacros = 1,
         @CXCodeComplete_IncludeCodePatterns = 2,
         @CXCodeComplete_IncludeBriefComments = 4,
     }
 
-    public enum CXCompletionContext : uint
+    public enum CXCompletionContext : int
     {
         @CXCompletionContext_Unexposed = 0,
         @CXCompletionContext_AnyType = 1,
@@ -1192,7 +1192,7 @@ namespace ClangSharp
         @CXCompletionContext_Unknown = 4194303,
     }
 
-    public enum CXEvalResultKind : uint
+    public enum CXEvalResultKind : int
     {
         @CXEval_Int = 1,
         @CXEval_Float = 2,
@@ -1203,20 +1203,20 @@ namespace ClangSharp
         @CXEval_UnExposed = 0,
     }
 
-    public enum CXVisitorResult : uint
+    public enum CXVisitorResult : int
     {
         @CXVisit_Break = 0,
         @CXVisit_Continue = 1,
     }
 
-    public enum CXResult : uint
+    public enum CXResult : int
     {
         @CXResult_Success = 0,
         @CXResult_Invalid = 1,
         @CXResult_VisitBreak = 2,
     }
 
-    public enum CXIdxEntityKind : uint
+    public enum CXIdxEntityKind : int
     {
         @CXIdxEntity_Unexposed = 0,
         @CXIdxEntity_Typedef = 1,
@@ -1247,7 +1247,7 @@ namespace ClangSharp
         @CXIdxEntity_CXXInterface = 26,
     }
 
-    public enum CXIdxEntityLanguage : uint
+    public enum CXIdxEntityLanguage : int
     {
         @CXIdxEntityLang_None = 0,
         @CXIdxEntityLang_C = 1,
@@ -1256,7 +1256,7 @@ namespace ClangSharp
         @CXIdxEntityLang_Swift = 4,
     }
 
-    public enum CXIdxEntityCXXTemplateKind : uint
+    public enum CXIdxEntityCXXTemplateKind : int
     {
         @CXIdxEntity_NonTemplate = 0,
         @CXIdxEntity_Template = 1,
@@ -1264,7 +1264,7 @@ namespace ClangSharp
         @CXIdxEntity_TemplateSpecialization = 3,
     }
 
-    public enum CXIdxAttrKind : uint
+    public enum CXIdxAttrKind : int
     {
         @CXIdxAttr_Unexposed = 0,
         @CXIdxAttr_IBAction = 1,
@@ -1272,25 +1272,25 @@ namespace ClangSharp
         @CXIdxAttr_IBOutletCollection = 3,
     }
 
-    public enum CXIdxDeclInfoFlags : uint
+    public enum CXIdxDeclInfoFlags : int
     {
         @CXIdxDeclFlag_Skipped = 1,
     }
 
-    public enum CXIdxObjCContainerKind : uint
+    public enum CXIdxObjCContainerKind : int
     {
         @CXIdxObjCContainer_ForwardRef = 0,
         @CXIdxObjCContainer_Interface = 1,
         @CXIdxObjCContainer_Implementation = 2,
     }
 
-    public enum CXIdxEntityRefKind : uint
+    public enum CXIdxEntityRefKind : int
     {
         @CXIdxEntityRef_Direct = 1,
         @CXIdxEntityRef_Implicit = 2,
     }
 
-    public enum CXIndexOptFlags : uint
+    public enum CXIndexOptFlags : int
     {
         @CXIndexOpt_None = 0,
         @CXIndexOpt_SuppressRedundantRefs = 1,
@@ -1300,7 +1300,7 @@ namespace ClangSharp
         @CXIndexOpt_SkipParsedBodiesInSession = 16,
     }
 
-    public enum CXCommentKind : uint
+    public enum CXCommentKind : int
     {
         @CXComment_Null = 0,
         @CXComment_Text = 1,
@@ -1317,7 +1317,7 @@ namespace ClangSharp
         @CXComment_FullComment = 12,
     }
 
-    public enum CXCommentInlineCommandRenderKind : uint
+    public enum CXCommentInlineCommandRenderKind : int
     {
         @CXCommentInlineCommandRenderKind_Normal = 0,
         @CXCommentInlineCommandRenderKind_Bold = 1,
@@ -1325,14 +1325,14 @@ namespace ClangSharp
         @CXCommentInlineCommandRenderKind_Emphasized = 3,
     }
 
-    public enum CXCommentParamPassDirection : uint
+    public enum CXCommentParamPassDirection : int
     {
         @CXCommentParamPassDirection_In = 0,
         @CXCommentParamPassDirection_Out = 1,
         @CXCommentParamPassDirection_InOut = 2,
     }
 
-    public enum CXCompilationDatabase_Error : uint
+    public enum CXCompilationDatabase_Error : int
     {
         @CXCompilationDatabase_NoError = 0,
         @CXCompilationDatabase_CanNotLoadDatabase = 1,
