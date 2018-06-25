@@ -1,5 +1,6 @@
 namespace ClangSharpPInvokeGenerator
 {
+    using System;
     using System.IO;
     using System.Text;
     using ClangSharp;
@@ -245,7 +246,13 @@ namespace ClangSharpPInvokeGenerator
 
                     if (isInSystemHeader)
                     {
-                        spelling = clang.getCanonicalType(type).ToPlainTypeString();
+                        // Cross-plat:
+                        // Getting the actual type of a typedef is painful, since platforms don't even agree on the meaning of types;
+                        // 64-bit is "long long" on Windows but "long" on Linux, for historical reasons.
+                        // The easiest way is to just get the size & signed-ness and write the type ourselves
+                        var size = clang.Type_getSizeOf(type);
+                        var signed = !clang.getTypedefDeclUnderlyingType(cursor).ToString().Contains("unsigned");
+                        spelling = GetTypeName(size, signed);
                     }
                     else
                     {
@@ -283,6 +290,47 @@ namespace ClangSharpPInvokeGenerator
             }
 
             tw.Write(outParam + spelling);
+        }
+
+        private static string GetTypeName(long size, bool signed)
+        {
+            if (signed)
+            {
+                switch (size)
+                {
+                    case 1:
+                        return "sbyte";
+
+                    case 2:
+                        return "short";
+
+                    case 4:
+                        return "int";
+
+                    case 8:
+                        return "long";
+                }
+            }
+            else
+            {
+
+                switch (size)
+                {
+                    case 1:
+                        return "byte";
+
+                    case 2:
+                        return "ushort";
+
+                    case 4:
+                        return "uint";
+
+                    case 8:
+                        return "ulong";
+                }
+            }
+
+            throw new Exception("Unknown size.");
         }
     }
 }

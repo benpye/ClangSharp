@@ -1407,7 +1407,7 @@ namespace ClangSharp
         public static extern CXString getFileName(CXFile @SFile);
 
         [DllImport(libraryPath, EntryPoint = "clang_getFileTime", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int getFileTime(CXFile @SFile);
+        public static extern long getFileTime(CXFile @SFile);
 
         [DllImport(libraryPath, EntryPoint = "clang_getFileUniqueID", CallingConvention = CallingConvention.Cdecl)]
         public static extern int getFileUniqueID(CXFile @file, out CXFileUniqueID @outID);
@@ -1420,7 +1420,7 @@ namespace ClangSharp
 
         [DllImport(libraryPath, EntryPoint = "clang_getFileContents", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaler))]
-        public static extern string getFileContents(CXTranslationUnit @tu, CXFile @file, out int @size);
+        public static extern string getFileContents(CXTranslationUnit @tu, CXFile @file, out ulong @size);
 
         [DllImport(libraryPath, EntryPoint = "clang_File_isEqual", CallingConvention = CallingConvention.Cdecl)]
         public static extern int File_isEqual(CXFile @file1, CXFile @file2);
